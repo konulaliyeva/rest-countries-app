@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Countries Over the World</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link
+    rel="icon"
+    href="https://cdn.shopify.com/s/files/1/1061/1924/products/Emoji_Earth_Globe_Europe_Africa_large.png?v=1571606068"
+    type="image/x-icon"
+  />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-container">
+                <h2 class="titleOfPage">Where in the world?</h2>
+                <button id= "darkMode" class="dark_mode">
+                    <i class="fa-solid fa-moon"></i>Dark Mode</button>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="filter_part">
+                <form id="form">
+                    <button id="searchBtn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input id="searchInput" type="search" placeholder="Search for a country...">
+                </form>
+    
+                <select name="regions" id="regions">
+                    <option value="regions">Regions</option>
+                    <option value="Africa">Africa</option>
+                    <option value="America">America</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Oceania">Oceania</option>
+                </select>         
+            </div>
+
+            <div id="allCountriesContainer" class="all_countries_container">
+                <!-- <div class="country">
+                    <img src="assets/images-folder/Flag_of_Azerbaijan.svg" />
+                    <div class="details_about-country">
+                        <h4>Germany</h4>
+                        <p>Population: <span>81,770,900</span></p>
+                        <p>Region: <span>Europe</span></p>
+                        <p>Capital: <span>Berlin</span></p>
+                    </div>
+
+                </div>
+
+                <div class="country">
+                    <img src="assets/images-folder/USA flag.png" />
+                    <div class="details_about-country">
+                        <h4>Germany</h4>
+                        <p>Population: <span>81,770,900</span></p>
+                        <p>Region: <span>Europe</span></p>
+                        <p>Capital: <span>Berlin</span></p>
+                    </div>
+                </div>
+                <div class="country">
+                    <img src="assets/images-folder/Flag_of_Brazil.svg.png" />
+                    <div class="details_about-country">
+                        <h4>Germany</h4>
+                        <p>Population: <span>81,770,900</span></p>
+                        <p>Region: <span>Europe</span></p>
+                        <p>Capital: <span>Berlin</span></p>
+                    </div>
+                </div>
+                <div class="country">
+                    <img src="assets/images-folder/Flag_of_Croatia.svg.png" />
+                    <div class="details_about-country">
+                        <h4>Germany</h4>
+                        <p>Population: <span>81,770,900</span></p>
+                        <p>Region: <span>Europe</span></p>
+                        <p>Capital: <span>Berlin</span></p>
+                    </div>
+                </div>
+                <div class="country">
+                    <img src="assets/images-folder/Flag_of_the_United_Kingdom.svg.webp" />
+                    <div class="details_about-country">
+                        <h4>Germany</h4>
+                        <p>Population: <span>81,770,900</span></p>
+                        <p>Region: <span>Europe</span></p>
+                        <p>Capital: <span>Berlin</span></p>
+                    </div>
+                </div>
+                <div class="country">
+                    <img src="assets/images-folder/Flag_of_Ukraine.svg.webp" />
+                    <div class="details_about-country">
+                        <h4>Germany</h4>
+                        <p>Population: <span>81,770,900</span></p>
+                        <p>Region: <span>Europe</span></p>
+                        <p>Capital: <span>Berlin</span></p>
+                    </div>
+                </div>
+                <div class="country">
+                    <img src="assets/images-folder/Flag_of_Germany.svg" />
+                    <div class="details_about-country">
+                        <h4>Germany</h4>
+                        <p>Population: <span>81,770,900</span></p>
+                        <p>Region: <span>Europe</span></p>
+                        <p>Capital: <span>Berlin</span></p>
+                    </div>
+                </div>
+                <div class="country">
+                    <img src="assets/images-folder/Flag_of_Uzbekistan.svg.png" />
+                    <div class="details_about-country">
+                        <h4>Germany</h4>
+                        <p>Population: <span>81,770,900</span></p>
+                        <p>Region: <span>Europe</span></p>
+                        <p>Capital: <span>Berlin</span></p>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+      
+    </main>
+   </div>
+   <script src="script.js"></script>
+</body>
+</html>
