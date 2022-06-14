@@ -1,3 +1,19 @@
+// dark mode
+const darkModeBtn = document.getElementById("darkMode");
+const body = document.querySelector("body");
+const searchInput = document.getElementById("searchInput");
+
+darkModeBtn.onclick = function () {
+  const theme = document.documentElement.dataset.theme;
+
+  if (theme === "light") {
+    document.documentElement.dataset.theme = "dark";
+  } else {
+    document.documentElement.dataset.theme = "light";
+  }
+};
+
+
 const allCountriesContainer = document.getElementById('allCountriesContainer');
 async function getData() {
   const response = await fetch('https://restcountries.com/v3.1/all');
