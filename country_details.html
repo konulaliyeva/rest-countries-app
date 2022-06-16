@@ -56,57 +56,61 @@
               <p>France</p> <p>Germany</p><p>Netherlands</p>
             </div>
           </div> -->
+
+          
      </div>
     </div>
     </main>
-    <footer class="footer"></footer>
     <script src="script.js"></script>
     <script>
+      const backBtn = document.getElementById('backBtn');
       const contentContainer = document.getElementById('content_container')
       const url = new URL(location.href);
       const countryName = url.searchParams.get("name");
+
       if (url.searchParams.has("name")) {
-        fetch(`https://restcountries.com/v3.1/name/${name.common}`)
+        fetch(`https://restcountries.com/v3.1/name/${countryName}`)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data)
-            let countryHTML = "";
-            countryHTML += getSingleCountry(data);
+            // console.log(data[0].name)
+            let countryHTML = getSingleCountry(data[0])
+            // countryHTML += getSingleCountry(data[0]);
 
             contentContainer.insertAdjacentHTML("afterbegin", countryHTML);
 
           });
       }
 
-      function getSingleCountry({ name,flag, region, subregion,language, population, borders, capital, currencies}) {
-        
+      function getSingleCountry({ name, flags, region, subregion, languages, population, borders, capital, currencies }) {
+        console.log('languages', languages)
         return `<div class="left-section">
-            <img src="${flag.svg || flag.png}" alt="" />
+            <img src="${flags.svg || flags.png}" alt="" />
           </div>
           <div class="right_section">
             <h2>${name.common}</h2>
             <div class="right_section_text_columns">
               <div class="right_section_left_column">
-                <p class="json_data_headers">Native Name: ${name.official}</p>
-                <p class="json_data_headers">Population: ${population}</p>
-                <p class="json_data_headers">Region: ${region}</p>
-                <p class="json_data_headers">Sub-region: ${subregion}</p>
-                <p class="json_data_headers">Capital: ${capital}</p>
+                <p><span class="json_data_headers">Native Name: </span> ${name.official}</p>
+                <p><span class="json_data_headers">Population: </span> ${population}</p>
+                <p><span class="json_data_headers">Region: </span> ${region}</p>
+                <p><span class="json_data_headers">Sub-region: </span> ${subregion}</p>
+                <p><span class="json_data_headers">Capital: </span> ${capital}</p>
               </div>
               <div class="right_section_right_column">
-                <p class="json_data_headers">Top Level Domain: </p>
-                <p class="json_data_headers">Currencies: ${currencies}</p>
-                <p class="json_data_headers">Languages: ${languages
-          .map((language) => `<p class="json_data_headers">${language}</p>`)
-          .join("")}</p>
-              </div
+                <p> <span class="json_data_headers">Top Level Domain: </span> </p>
+                <p><span class="json_data_headers">Languages: </span> ${Object.values(languages)}</p>
+              </div>
             </div>
             <div class="borders">
-              <p class="json_data_headers">Border countries:${borders
-          .map((border) => `<p class="json_data_headers">${border}</p>`)
-          .join("")}</p>
+              <p><span class="json_data_headers">Borders: </span> ${borders
+              .map((border) => `<p class="borderCountries">${border}</p>`)
+              .join("")}</p>
             </div>
           </div>`;
+      }
+
+      backBtn.onclick = function(){
+        window.location.href = "index.html"
       }
     </script>
   </body>

@@ -109,6 +109,7 @@
     margin-top: 50px;
     background-color: var(--country-box-bcg-color);
     border-radius: 5px;
+    color: var(--text-color);
 
 }
 
@@ -152,6 +153,7 @@ html[data-theme="dark"] {
   #backBtn{
       padding: 10px 40px;
       border-radius: 5px;
+      font-size: 17px;
       border: none;
       position: relative;
       bottom: 70px;
@@ -175,11 +177,13 @@ html[data-theme="dark"] {
   .left-section img{
     max-width:100%;
     height: 310px;
+    border-radius: 10px;
    
   }
   .right_section{
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       flex: 50%;
       text-align:start;
       margin-left: 70px;
@@ -187,25 +191,33 @@ html[data-theme="dark"] {
   }
   .right_section_text_columns{
     display: flex;
-    justify-content: space-between;
     line-height: 2.5em;
     margin: 20px 0px;
   }
   .right_section_left_column{
-      margin-right: 75px;
+      margin-right: 35px;
+  }
+  .right_section_left_column p{
+      font-weight: 300;
+  }
+  .right_section_right_column{
+    margin-left: 55px;
   }
   .json_data_headers{
       font-weight: bolder;
+      font-size: 17px;
   }
+  
   .borders{
       display: flex;
   }
   .borders p{
       margin-right: 20px;
+      font-weight: 300;
+  }
+  .borderCountries{
+      border: 1px solid #505050;
+      padding: 1px 10px;
   }
 
-  .footer{
-    height: 150px;
-    background-color: var(--header-bcg-color);
-
-  }
+  
