@@ -20,23 +20,25 @@ async function getData() {
   const countries = await response.json(); // Extracting data as a JSON Object from the response
   let filteredCountries = [];
 // filtering countries over the regions
-  let filtredByRegions = [];
-  regions.addEventListener('change', ()=>{
-    let selectedValue= regions.value;
-    filtredByRegions = countries.filter((country)=>{
-      country.region === selectedValue;
+  let filteredByRegions = [];
+  regions.addEventListener('change', (event)=>{
+    let selectedValue= event.target.value;
+    filteredByRegions = countries.filter((country)=>
+      country.region === selectedValue
 
-    });
+    );
 
-    console.log(filtredByRegions)
+    console.log(filteredByRegions)
     let eachCountry = '';
-    for (let country of filtredByRegions) {
+    for (let country of filteredByRegions) {
       eachCountry += getCountryDetails(country);
     }
   
     allCountriesContainer.innerHTML = eachCountry;
   });
   // -----------------------------------------
+
+  // search input for each country
   searchInput.addEventListener('input', (event) => {
     let value = event.target.value;
     value = value.toLowerCase();
@@ -51,7 +53,7 @@ async function getData() {
     console.log('filteredCountries', filteredCountries);
     allCountriesContainer.innerHTML = eachCountry;
   });
-
+  // get all data form json server
   let eachCountry = '';
   for (let country of countries) {
     eachCountry += getCountryDetails(country);
