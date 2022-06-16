@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About a country</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link
+    rel="icon"
+    href="https://cdn.shopify.com/s/files/1/1061/1924/products/Emoji_Earth_Globe_Europe_Africa_large.png?v=1571606068"
+    type="image/x-icon"
+  />
+  </head>
+  <body>
+    <header class="header">
+        <div class="container">
+            <div class="header-container">
+                <h2 class="titleOfPage">Where in the world?</h2>
+                <button id= "darkMode" class="dark_mode">
+                    <i class="fa-solid fa-moon"></i>Dark Mode</button>
+            </div>
+        </div>
+    </header>
+    <main>
+
+    <div class="container_country_details">
+        <button id="backBtn"><i class="fa-solid fa-arrow-left"></i>
+            Back</button>
+     <div id="content_container" class="content-container">
+        <!-- <div class="left-section">
+            <img src="assets/images-folder/Flag_of_Azerbaijan.svg" alt="" />
+          </div>
+          <div class="right_section">
+            <h2>Azerbaijan</h2>
+            <div class="right_section_text_columns">
+              <div class="right_section_left_column">
+                <p class="json_data_headers">Native Name: Azerbaijan</p>
+                <p class="json_data_headers">Population: 1000000000 million</p>
+                <p class="json_data_headers">Region: Asia</p>
+                <p class="json_data_headers">Sub-region: Asia</p>
+                <p class="json_data_headers">Capital: Baku</p>
+              </div>
+              <div class="right_section_right_column">
+                <p class="json_data_headers">Top Level Domain: .az</p>
+                <p class="json_data_headers">Currencies: azn</p>
+                <p class="json_data_headers">Languages: Azerbaijani, Russian</p>
+              </div>
+            </div>
+            <div class="borders">
+              <p class="json_data_headers">Border countries: </p>
+              <p>France</p> <p>Germany</p><p>Netherlands</p>
+            </div>
+          </div> -->
+     </div>
+    </div>
+    </main>
+    <footer class="footer"></footer>
+    <script src="script.js"></script>
+    <script>
+      const contentContainer = document.getElementById('content_container')
+      const url = new URL(location.href);
+      const countryName = url.searchParams.get("name");
+      if (url.searchParams.has("name")) {
+        fetch(`https://restcountries.com/v3.1/name/${name.common}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data)
+            let countryHTML = "";
+            countryHTML += getSingleCountry(data);
+
+            contentContainer.insertAdjacentHTML("afterbegin", countryHTML);
+
+          });
+      }
+
+      function getSingleCountry({ name,flag, region, subregion,language, population, borders, capital, currencies}) {
+        
+        return `<div class="left-section">
+            <img src="${flag.svg || flag.png}" alt="" />
+          </div>
+          <div class="right_section">
+            <h2>${name.common}</h2>
+            <div class="right_section_text_columns">
+              <div class="right_section_left_column">
+                <p class="json_data_headers">Native Name: ${name.official}</p>
+                <p class="json_data_headers">Population: ${population}</p>
+                <p class="json_data_headers">Region: ${region}</p>
+                <p class="json_data_headers">Sub-region: ${subregion}</p>
+                <p class="json_data_headers">Capital: ${capital}</p>
+              </div>
+              <div class="right_section_right_column">
+                <p class="json_data_headers">Top Level Domain: </p>
+                <p class="json_data_headers">Currencies: ${currencies}</p>
+                <p class="json_data_headers">Languages: ${languages
+          .map((language) => `<p class="json_data_headers">${language}</p>`)
+          .join("")}</p>
+              </div
+            </div>
+            <div class="borders">
+              <p class="json_data_headers">Border countries:${borders
+          .map((border) => `<p class="json_data_headers">${border}</p>`)
+          .join("")}</p>
+            </div>
+          </div>`;
+      }
+    </script>
+  </body>
+</html>

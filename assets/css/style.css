@@ -3,7 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Nunito Sans', sans-serif;
+    list-style: none;
+    text-decoration: none;
 }
+
 .header{
     background-color: var(--header-bcg-color);
 }
@@ -142,4 +145,67 @@ html[data-theme="dark"] {
   body {
     background-color: var(--background-color) !important;
     color: var(--text-color) !important;
+  }
+
+  /* Diger sehifenin styli */
+
+  #backBtn{
+      padding: 10px 40px;
+      border-radius: 5px;
+      border: none;
+      position: relative;
+      bottom: 70px;
+      background-color: var(--background-color);
+      color: var(--text-color);
+
+  }
+
+  .container_country_details{
+    padding: 100px 100px;
+  }
+  .content-container{
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      align-items: flex-start;
+  }
+  .left-section{
+    flex: 50%;  }
+
+  .left-section img{
+    max-width:100%;
+    height: 310px;
+   
+  }
+  .right_section{
+      display: flex;
+      flex-direction: column;
+      flex: 50%;
+      text-align:start;
+      margin-left: 70px;
+
+  }
+  .right_section_text_columns{
+    display: flex;
+    justify-content: space-between;
+    line-height: 2.5em;
+    margin: 20px 0px;
+  }
+  .right_section_left_column{
+      margin-right: 75px;
+  }
+  .json_data_headers{
+      font-weight: bolder;
+  }
+  .borders{
+      display: flex;
+  }
+  .borders p{
+      margin-right: 20px;
+  }
+
+  .footer{
+    height: 150px;
+    background-color: var(--header-bcg-color);
+
   }

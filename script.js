@@ -64,15 +64,21 @@ async function getData() {
 getData();
 
 function getCountryDetails({ flags, population, region, capital, name }) {
-  return ` <div class="country">
+  return ` <a href="country_details.html?name=${name.common}" <div class="country">
     <img src="${flags.png || flags.svg}" />
     <div class="details_about-country">
         <h4>${name.common}</h4>
         <p>Population: <span>${population}</span></p>
         <p>Region: <span>${region}</span></p>
         <p>Capital: <span>${capital}</span></p>
-    </div>
+    </div></a>
 
 </div>`;
 }
+
+
+
+
+
+// -------------------------------------------------------------------------------
 
