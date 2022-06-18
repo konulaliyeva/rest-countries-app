@@ -95,12 +95,21 @@
     color: var(--text-color);
 
 }
+#regions option{
+    background-color: var(--header-bcg-color) !important;
+    color: var(--text-color);
+}
 
 .all_countries_container{
     display: flex;
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+.country_container {
+    flex-basis: 25%;
+    padding: 0 5px;
 }
 
 .country{
@@ -110,12 +119,10 @@
     background-color: var(--country-box-bcg-color);
     border-radius: 5px;
     color: var(--text-color);
-
 }
 
 .country img{
     max-width: 100%;
-    flex-basis: 25%;
     height: 160px;
     border-radius: 5px;
 }

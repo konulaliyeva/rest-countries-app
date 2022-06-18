@@ -32,32 +32,6 @@
         <button id="backBtn"><i class="fa-solid fa-arrow-left"></i>
             Back</button>
      <div id="content_container" class="content-container">
-        <!-- <div class="left-section">
-            <img src="assets/images-folder/Flag_of_Azerbaijan.svg" alt="" />
-          </div>
-          <div class="right_section">
-            <h2>Azerbaijan</h2>
-            <div class="right_section_text_columns">
-              <div class="right_section_left_column">
-                <p class="json_data_headers">Native Name: Azerbaijan</p>
-                <p class="json_data_headers">Population: 1000000000 million</p>
-                <p class="json_data_headers">Region: Asia</p>
-                <p class="json_data_headers">Sub-region: Asia</p>
-                <p class="json_data_headers">Capital: Baku</p>
-              </div>
-              <div class="right_section_right_column">
-                <p class="json_data_headers">Top Level Domain: .az</p>
-                <p class="json_data_headers">Currencies: azn</p>
-                <p class="json_data_headers">Languages: Azerbaijani, Russian</p>
-              </div>
-            </div>
-            <div class="borders">
-              <p class="json_data_headers">Border countries: </p>
-              <p>France</p> <p>Germany</p><p>Netherlands</p>
-            </div>
-          </div> -->
-
-          
      </div>
     </div>
     </main>
@@ -72,9 +46,7 @@
         fetch(`https://restcountries.com/v3.1/name/${countryName}`)
           .then((res) => res.json())
           .then((data) => {
-            // console.log(data[0].name)
             let countryHTML = getSingleCountry(data[0])
-            // countryHTML += getSingleCountry(data[0]);
 
             contentContainer.insertAdjacentHTML("afterbegin", countryHTML);
 
@@ -82,7 +54,6 @@
       }
 
       function getSingleCountry({ name, flags, region, subregion, languages, population, borders, capital, currencies }) {
-        console.log('languages', languages)
         return `<div class="left-section">
             <img src="${flags.svg || flags.png}" alt="" />
           </div>
@@ -102,9 +73,7 @@
               </div>
             </div>
             <div class="borders">
-              <p><span class="json_data_headers">Borders: </span> ${borders
-              .map((border) => `<p class="borderCountries">${border}</p>`)
-              .join("")}</p>
+              <p><span class="json_data_headers">Borders: </span> ${borders && borders.length !==0 ? borders.map((border) => `<p class="borderCountries">${border}</p>`).join(""): " Not found"}</p>
             </div>
           </div>`;
       }

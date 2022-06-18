@@ -21,8 +21,9 @@ async function getData() {
   let filteredCountries = [];
 // filtering countries over the regions
   let filteredByRegions = [];
+  let selectedValue;
   regions.addEventListener('change', (event)=>{
-    let selectedValue= event.target.value;
+    selectedValue= event.target.value;
     filteredByRegions = countries.filter((country)=>
       country.region === selectedValue
 
@@ -42,9 +43,15 @@ async function getData() {
   searchInput.addEventListener('input', (event) => {
     let value = event.target.value;
     value = value.toLowerCase();
-    filteredCountries = countries.filter((country) =>
+    if(selectedValue){
+      filteredCountries = filteredByRegions.filter((country) =>
       country.name.common.toLowerCase().includes(value)
     );
+    }
+    else{
+      filteredCountries = countries.filter((country) =>
+      country.name.common.toLowerCase().includes(value));
+    }
 
     let eachCountry = '';
     for (let country of filteredCountries) {
@@ -64,14 +71,15 @@ async function getData() {
 getData();
 
 function getCountryDetails({ flags, population, region, capital, name }) {
-  return ` <a href="country_details.html?name=${name.common}" <div class="country">
+  return `<div class="country_container"> <a href="country_details.html?name=${name.common}" <div class="country">
     <img src="${flags.png || flags.svg}" />
     <div class="details_about-country">
         <h4>${name.common}</h4>
         <p>Population: <span>${population}</span></p>
         <p>Region: <span>${region}</span></p>
         <p>Capital: <span>${capital}</span></p>
-    </div></a>
+    </div>
+    </a>
 
 </div>`;
 }
