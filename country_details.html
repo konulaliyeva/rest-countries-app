@@ -5,82 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About a country</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="assets/css/style.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet">
     <link
-    rel="icon"
-    href="https://cdn.shopify.com/s/files/1/1061/1924/products/Emoji_Earth_Globe_Europe_Africa_large.png?v=1571606068"
-    type="image/x-icon"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://cdn.shopify.com/s/files/1/1061/1924/products/Emoji_Earth_Globe_Europe_Africa_large.png?v=1571606068"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <header class="header">
-        <div class="container">
-            <div class="header-container">
-                <h2 class="titleOfPage">Where in the world?</h2>
-                <button id= "darkMode" class="dark_mode">
-                    <i class="fa-solid fa-moon"></i>Dark Mode</button>
-            </div>
+      <div class="container">
+        <div class="header-container">
+          <h2 class="titleOfPage">Where in the world?</h2>
+          <button id="darkMode" class="dark_mode">
+            <i class="fa-solid fa-moon"></i>Dark Mode
+          </button>
         </div>
+      </div>
     </header>
     <main>
-
-    <div class="container_country_details">
-        <button id="backBtn"><i class="fa-solid fa-arrow-left"></i>
-            Back</button>
-     <div id="content_container" class="content-container">
-     </div>
-    </div>
+      <div class="container_country_details">
+        <button id="backBtn">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <div id="content_container" class="content-container"></div>
+      </div>
     </main>
-    <script src="script.js"></script>
-    <script>
-      const backBtn = document.getElementById('backBtn');
-      const contentContainer = document.getElementById('content_container')
-      const url = new URL(location.href);
-      const countryName = url.searchParams.get("name");
-
-      if (url.searchParams.has("name")) {
-        fetch(`https://restcountries.com/v3.1/name/${countryName}`)
-          .then((res) => res.json())
-          .then((data) => {
-            let countryHTML = getSingleCountry(data[0])
-
-            contentContainer.insertAdjacentHTML("afterbegin", countryHTML);
-
-          });
-      }
-
-      function getSingleCountry({ name, flags, region, subregion, languages, population, borders, capital, currencies }) {
-        return `<div class="left-section">
-            <img src="${flags.svg || flags.png}" alt="" />
-          </div>
-          <div class="right_section">
-            <h2>${name.common}</h2>
-            <div class="right_section_text_columns">
-              <div class="right_section_left_column">
-                <p><span class="json_data_headers">Native Name: </span> ${name.official}</p>
-                <p><span class="json_data_headers">Population: </span> ${population}</p>
-                <p><span class="json_data_headers">Region: </span> ${region}</p>
-                <p><span class="json_data_headers">Sub-region: </span> ${subregion}</p>
-                <p><span class="json_data_headers">Capital: </span> ${capital}</p>
-              </div>
-              <div class="right_section_right_column">
-                <p> <span class="json_data_headers">Top Level Domain: </span> </p>
-                <p><span class="json_data_headers">Languages: </span> ${Object.values(languages)}</p>
-              </div>
-            </div>
-            <div class="borders">
-              <p><span class="json_data_headers">Borders: </span> ${borders && borders.length !==0 ? borders.map((border) => `<p class="borderCountries">${border}</p>`).join(""): " Not found"}</p>
-            </div>
-          </div>`;
-      }
-
-      backBtn.onclick = function(){
-        window.location.href = "index.html"
-      }
-    </script>
+    <script src="singleCountry.js"></script>
+    
   </body>
 </html>
